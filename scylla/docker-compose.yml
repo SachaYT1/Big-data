@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  scylla1:
+    image: scylladb/scylla:6.1
+    container_name: scylla1
+    command: >
+      --smp 1 --memory 2G --overprovisioned 1
+      --reactor-backend=epoll
+      --api-address 0.0.0.0
+      --rpc-address 0.0.0.0
+      --broadcast-rpc-address scylla1
+      --listen-address scylla1
+      --seed-provider-parameters seeds=scylla1
+    ports:
+      - "9042:9042"
+    networks:
+      - scylla_net
+    volumes:
+      - scylla1_data:/var/lib/scylla
+
+  scylla2:
+    image: scylladb/scylla:6.1
+    container_name: scylla2
+    command: >
+      --smp 1 --memory 2G --overprovisioned 1
+      --reactor-backend=epoll
+      --api-address 0.0.0.0
+      --rpc-address 0.0.0.0
+      --broadcast-rpc-address scylla2
+      --listen-address scylla2
+      --seed-provider-parameters seeds=scylla1
+    depends_on:
+      - scylla1
+    networks:
+      - scylla_net
+    volumes:
+      - scylla2_data:/var/lib/scylla
+
+  scylla3:
+    image: scylladb/scylla:6.1
+    container_name: scylla3
+    command: >
+      --smp 1 --memory 2G --overprovisioned 1
+      --reactor-backend=epoll
+      --api-address 0.0.0.0
+      --rpc-address 0.0.0.0
+      --broadcast-rpc-address scylla3
+      --listen-address scylla3
+      --seed-provider-parameters seeds=scylla1
+    depends_on:
+      - scylla1
+    networks:
+      - scylla_net
+    volumes:
+      - scylla3_data:/var/lib/scylla
+
+networks:
+  scylla_net:
+
+volumes:
+  scylla1_data:
+  scylla2_data:
+  scylla3_data:
