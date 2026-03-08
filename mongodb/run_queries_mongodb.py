@@ -29,7 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run analytical queries on MongoDB")
     parser.add_argument(
         "--uri",
-        default="mongodb://localhost:27020,localhost:27021,localhost:27022/?replicaSet=rs0",
+        default="mongodb://localhost:27020/?directConnection=true",
     )
     parser.add_argument("--db", default="foursquaredb")
     parser.add_argument("--runs", type=int, default=3)

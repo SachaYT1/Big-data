@@ -743,7 +743,7 @@ Command used:
 ```bash
 cd "/Users/algavkovskii/uni/Big data"
 source venv312/bin/activate
-python mongodb/ingest_mongodb.py --uri "mongodb://localhost:27020,localhost:27021,localhost:27022/?replicaSet=rs0" --db foursquaredb
+python mongodb/ingest_mongodb.py --uri "mongodb://localhost:27020/?directConnection=true" --db foursquaredb
 ```
 
 Observed MongoDB ingestion output:
@@ -774,7 +774,7 @@ Benchmark method:
 Command used:
 
 ```bash
-python mongodb/run_queries_mongodb.py --uri "mongodb://localhost:27020,localhost:27021,localhost:27022/?replicaSet=rs0" --db foursquaredb --runs 3 --q4-category Club
+python mongodb/run_queries_mongodb.py --uri "mongodb://localhost:27020/?directConnection=true" --db foursquaredb --runs 3 --q4-category Club
 ```
 
 ### MongoDB Q1 timing

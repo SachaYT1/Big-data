@@ -114,8 +114,6 @@ def load_stable_friendships(db, stable_pairs: set[tuple[int, int]], batch_size: 
 
 def create_indexes(db) -> float:
     started = time.perf_counter()
-    db.users.create_index([("_id", ASCENDING)], unique=True)
-    db.pois.create_index([("_id", ASCENDING)], unique=True)
     db.pois.create_index([("country", ASCENDING)])
     db.pois.create_index([("category", TEXT)])
 
@@ -135,7 +133,7 @@ def main():
     parser = argparse.ArgumentParser(description="Ingest Foursquare slice into MongoDB")
     parser.add_argument(
         "--uri",
-        default="mongodb://localhost:27020,localhost:27021,localhost:27022/?replicaSet=rs0",
+        default="mongodb://localhost:27020/?directConnection=true",
     )
     parser.add_argument("--db", default="foursquaredb")
     parser.add_argument("--batch-size", type=int, default=20000)
