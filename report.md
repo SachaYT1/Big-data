@@ -28,7 +28,9 @@ Output file:
 
 **Screenshot placeholders (full screen):**
 - `[SS-I1-1]` Terminal command + script output for user slice extraction.
+  ![SS-I1-1](screenshots/my_users.png)
 - `[SS-I1-2]` File preview showing `my_users.csv`.
+  ![SS-I1-2](screenshots/my_users.png)
 
 ---
 
@@ -64,8 +66,11 @@ Result summary:
 
 **Screenshot placeholders (full screen):**
 - `[SS-I2-1]` Code of `prepare_my_custom_files.py`.
+  ![SS-I2-1](screenshots/code_prepare_my_custom_files.png)
 - `[SS-I2-2]` Terminal output of `prepare_my_custom_files.py`.
+  ![SS-I2-2](screenshots/prepare_my_custom_files.png)
 - `[SS-I2-3]` Command/output showing row counts of generated files.
+  ![SS-I2-3](screenshots/prepare_my_custom_files.png)
 
 ---
 
@@ -75,6 +80,7 @@ After generating my custom files, I removed source files that do not belong to m
 
 **Screenshot placeholder (full screen):**
 - `[SS-I3-1]` File explorer/terminal view after cleanup.
+  ![SS-I3-1](screenshots/my_users.png)
 
 ---
 
@@ -122,8 +128,11 @@ The schema keeps stable entity separation (`users`, `pois`) and fact-like events
 
 **Screenshot placeholders (full screen):**
 - `[SS-IIA-1]` `schema_postgres.sql` visible in editor.
+  ![SS-IIA-1](screenshots/schema_postgres.png)
 - `[SS-IIA-2]` pgAdmin tree showing created tables in `foursquaredb`.
+  ![SS-IIA-2](screenshots/pgadmin.png)
 - `[SS-IIA-3]` pgAdmin/SQL output showing indexes and constraints.
+  ![SS-IIA-3](screenshots/pgadmin.png)
 
 ---
 
@@ -169,7 +178,9 @@ Ingestion metrics table:
 
 **Screenshot placeholders (full screen):**
 - `[SS-IIB-1]` `ingest_postgres.py` code.
+  ![SS-IIB-1](screenshots/code_ingest_postgres.png)
 - `[SS-IIB-2]` Terminal output with per-table and total ingestion time.
+  ![SS-IIB-2](screenshots/ingest_postgres.png)
 
 ---
 
@@ -220,7 +231,9 @@ Sample result (top countries):
 
 **Screenshot placeholders (full screen):**
 - `[SS-Q1-1]` Query code and output rows.
+  ![SS-Q1-1](screenshots/code_run_queieries_postgres.png)
 - `[SS-Q1-2]` Terminal timing output (3 runs + average).
+  ![SS-Q1-2](screenshots/queiries_postgres.png)
 
 ---
 
@@ -273,7 +286,9 @@ Sample result (first rows):
 
 **Screenshot placeholders (full screen):**
 - `[SS-Q2-1]` Query code and output rows.
+  ![SS-Q2-1](screenshots/code_run_quieries_postgres_2.png)
 - `[SS-Q2-2]` Terminal timing output (3 runs + average).
+  ![SS-Q2-2](screenshots/queiries_postgres.png)
 
 ---
 
@@ -314,7 +329,9 @@ Sample result (first rows):
 
 **Screenshot placeholders (full screen):**
 - `[SS-Q3-1]` Query code and output rows.
+  ![SS-Q3-1](screenshots/code_run_quieries_postgres_2.png)
 - `[SS-Q3-2]` Terminal timing output (3 runs + average).
+  ![SS-Q3-2](screenshots/queiries_postgres.png)
 
 ---
 
@@ -362,7 +379,9 @@ Sample result:
 
 **Screenshot placeholders (full screen):**
 - `[SS-Q4-1]` Query code and output rows.
+  ![SS-Q4-1](screenshots/code_run_quieries_postgres_2.png)
 - `[SS-Q4-2]` Terminal timing output (3 runs + average).
+  ![SS-Q4-2](screenshots/queiries_postgres.png)
 
 ---
 
@@ -434,8 +453,11 @@ Standalone PostgreSQL stores all data on one node with local indexes only. Citus
 
 **Screenshot placeholders (full screen):**
 - `[SS-CITUS-IIA-1]` `docker compose up -d` output.
+  ![SS-CITUS-IIA-1](screenshots/citus_docker_compose.png)
 - `[SS-CITUS-IIA-2]` output of `setup_cluster.sql` with active workers.
+  ![SS-CITUS-IIA-2](screenshots/setup_cluster_citus.png)
 - `[SS-CITUS-IIA-3]` `schema_citus.sql` code and created objects.
+  ![SS-CITUS-IIA-3](screenshots/schema_citus.png)
 
 ---
 
@@ -469,7 +491,9 @@ Observed Citus ingestion output:
 
 **Screenshot placeholders (full screen):**
 - `[SS-CITUS-IIB-1]` `ingest_citus.py` code.
+  ![SS-CITUS-IIB-1](screenshots/code_insgest_citus.png)
 - `[SS-CITUS-IIB-2]` Terminal output with per-table and total ingestion time.
+  ![SS-CITUS-IIB-2](screenshots/ingest_citus.png)
 
 ---
 
@@ -524,9 +548,13 @@ python citus/run_queries_citus.py --dbname foursquaredb --runs 3 --q4-category C
 
 **Screenshot placeholders (full screen):**
 - `[SS-CITUS-Q1]` Query output and timings.
+  ![SS-CITUS-Q1](screenshots/run_quieries_citus.png)
 - `[SS-CITUS-Q2]` Query output and timings.
+  ![SS-CITUS-Q2](screenshots/run_quieries_citus_2.png)
 - `[SS-CITUS-Q3]` Query output and timings.
+  ![SS-CITUS-Q3](screenshots/quieries_citus.png)
 - `[SS-CITUS-Q4]` Query output and timings.
+  ![SS-CITUS-Q4](screenshots/quieries_citus.png)
 
 ---
 
@@ -578,8 +606,11 @@ Physical model notes:
 
 **Screenshot placeholders (full screen):**
 - `[SS-SCYLLA-IIA-1]` Docker cluster status (`nodetool status`).
+  ![SS-SCYLLA-IIA-1](screenshots/scylla_docker_compose.png)
 - `[SS-SCYLLA-IIA-2]` `schema_scylla.cql` code.
+  ![SS-SCYLLA-IIA-2](screenshots/schema_scylla_v2.png)
 - `[SS-SCYLLA-IIA-3]` Keyspace/tables shown in `cqlsh`.
+  ![SS-SCYLLA-IIA-3](screenshots/schema_scylla.png)
 
 ---
 
@@ -612,7 +643,9 @@ Observed Scylla ingestion output:
 
 **Screenshot placeholders (full screen):**
 - `[SS-SCYLLA-IIB-1]` `ingest_scylla.py` code.
+  ![SS-SCYLLA-IIB-1](screenshots/code_insgest_scylla_1.png)
 - `[SS-SCYLLA-IIB-2]` Terminal output with stage and total ingestion timing.
+  ![SS-SCYLLA-IIB-2](screenshots/ingest_scylla.png)
 
 ---
 
@@ -667,9 +700,13 @@ python scylla/run_queries_scylla.py --hosts 127.0.0.1 --port 9042 --runs 3 --q4-
 
 **Screenshot placeholders (full screen):**
 - `[SS-SCYLLA-Q1]` Query output and timings.
+  ![SS-SCYLLA-Q1](screenshots/queries_scylla_full.png)
 - `[SS-SCYLLA-Q2]` Query output and timings.
+  ![SS-SCYLLA-Q2](screenshots/queries_scylla_full.png)
 - `[SS-SCYLLA-Q3]` Query output and timings.
+  ![SS-SCYLLA-Q3](screenshots/queries_scylla_full.png)
 - `[SS-SCYLLA-Q4]` Query output and timings.
+  ![SS-SCYLLA-Q4](screenshots/queries_scylla_full.png)
 
 ---
 
@@ -718,8 +755,11 @@ Indexes:
 
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-IIA-1]` replica set initialization and status.
+  ![SS-MONGO-IIA-1](screenshots/mongo_docker.png)
 - `[SS-MONGO-IIA-2]` collection examples (document structure).
+  ![SS-MONGO-IIA-2](screenshots/mongo_docker.png)
 - `[SS-MONGO-IIA-3]` created indexes in MongoDB.
+  ![SS-MONGO-IIA-3](screenshots/mongo_error.png)
 
 ---
 
@@ -753,8 +793,11 @@ The MongoDB part could not be completed within the assignment time due to repeat
 
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-IIB-1]` `ingest_mongodb.py` code.
+  ![SS-MONGO-IIB-1](screenshots/mongo_error.png)
 - `[SS-MONGO-IIB-2]` Terminal output with stage and total ingestion timing.
+  ![SS-MONGO-IIB-2](screenshots/mongo_error.png)
 - `[SS-MONGO-IIB-3]` Terminal screenshot showing replica-set instability / write interruption error.
+  ![SS-MONGO-IIB-3](screenshots/mongo_error.png)
 
 ---
 
@@ -809,6 +852,10 @@ python mongodb/run_queries_mongodb.py --host localhost --ports "27020,27021,2702
 
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-Q1]` Query output and timings.
+  ![SS-MONGO-Q1](screenshots/mongo_error.png)
 - `[SS-MONGO-Q2]` Query output and timings.
+  ![SS-MONGO-Q2](screenshots/mongo_error.png)
 - `[SS-MONGO-Q3]` Query output and timings.
+  ![SS-MONGO-Q3](screenshots/mongo_error.png)
 - `[SS-MONGO-Q4]` Query output and timings.
+  ![SS-MONGO-Q4](screenshots/mongo_error.png)
