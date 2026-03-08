@@ -7,7 +7,8 @@ Student: Aleksandr Gavkovskii
 SID: 50  
 
 Note: A subset of screenshots in this report is not full-screen due to a late realization of the screenshot formatting requirement.
-
+- Full project code repository: [SachaYT1/Big-data](https://github.com/SachaYT1/Big-data)
+ 
 ---
 
 ## I. Data Preparation [5 points]
@@ -30,7 +31,7 @@ Output file:
 - `[SS-I1-1]` Terminal command + script output for user slice extraction.
   ![SS-I1-1](screenshots/my_users.png)
 - `[SS-I1-2]` File preview showing `my_users.csv`.
-  ![SS-I1-2](screenshots/my_users.png)
+  ![SS-I1-2](screenshots/my_users_preview.png)
 
 ---
 
@@ -69,8 +70,6 @@ Result summary:
   ![SS-I2-1](screenshots/code_prepare_my_custom_files.png)
 - `[SS-I2-2]` Terminal output of `prepare_my_custom_files.py`.
   ![SS-I2-2](screenshots/prepare_my_custom_files.png)
-- `[SS-I2-3]` Command/output showing row counts of generated files.
-  ![SS-I2-3](screenshots/prepare_my_custom_files.png)
 
 ---
 
@@ -80,7 +79,7 @@ After generating my custom files, I removed source files that do not belong to m
 
 **Screenshot placeholder (full screen):**
 - `[SS-I3-1]` File explorer/terminal view after cleanup.
-  ![SS-I3-1](screenshots/my_users.png)
+  ![SS-I3-1](screenshots/my_users_preview.png)
 
 ---
 
@@ -394,22 +393,6 @@ Sample result:
 | ScyllaDB | 0.0040 | 0.0038 | 0.0018 | 0.0011 | A cluster of `3` nodes | `3 (1 per node)` | `6 GiB (2 GiB per node)` |
 | MongoDB | `Not completed` | `Not completed` | `Not completed` | `Not completed` | A replica set of `3` nodes | `Not measured` | `Not measured` |
 
----
-
-## Notes for Final PDF Export
-
-- Keep all required screenshots **full screen** and uncropped.
-- For each task, include:
-  1. query text in the table/section,
-  2. screenshot of query execution and output,
-  3. measured timings.
-- Ensure all required screenshots are added before converting to PDF.
-
----
-
-## Source Used for Assignment Instructions
-
-- Assignment page and report template link: [BS - Assignment 1 - Big Data Storage in SQL vs. NoSQL Databases](https://firas-jolha.github.io/bigdata/html/bs/BS%20-%20Assignment%201%20-%20Big%20Data%20Storage%20in%20SQL%20vs.%20NoSQL%20Databases.html#Report-template)
 
 ---
 
@@ -452,12 +435,14 @@ How this differs from standalone PostgreSQL:
 Standalone PostgreSQL stores all data on one node with local indexes only. Citus adds horizontal partitioning across workers and distributed planning/execution, so table distribution and shard-key choice become core schema design decisions.
 
 **Screenshot placeholders (full screen):**
-- `[SS-CITUS-IIA-1]` `docker compose up -d` output.
+- `[SS-CITUS-IIA-1]` `docker compose yaml`.
   ![SS-CITUS-IIA-1](screenshots/citus_docker_compose.png)
 - `[SS-CITUS-IIA-2]` output of `setup_cluster.sql` with active workers.
   ![SS-CITUS-IIA-2](screenshots/setup_cluster_citus.png)
 - `[SS-CITUS-IIA-3]` `schema_citus.sql` code and created objects.
   ![SS-CITUS-IIA-3](screenshots/schema_citus.png)
+- `[SS-CITUS-IIA-4]` `docker`.
+  ![SS-CITUS-IIA-1](screenshots/citus_docker.png)
 
 ---
 
@@ -547,14 +532,12 @@ python citus/run_queries_citus.py --dbname foursquaredb --runs 3 --q4-category C
 | Average | 24.0533 |
 
 **Screenshot placeholders (full screen):**
-- `[SS-CITUS-Q1]` Query output and timings.
+- `[SS-CITUS-Q1]` Query code 1.
   ![SS-CITUS-Q1](screenshots/run_quieries_citus.png)
-- `[SS-CITUS-Q2]` Query output and timings.
+- `[SS-CITUS-Q2]` Query code 2.
   ![SS-CITUS-Q2](screenshots/run_quieries_citus_2.png)
 - `[SS-CITUS-Q3]` Query output and timings.
   ![SS-CITUS-Q3](screenshots/quieries_citus.png)
-- `[SS-CITUS-Q4]` Query output and timings.
-  ![SS-CITUS-Q4](screenshots/quieries_citus.png)
 
 ---
 
@@ -611,6 +594,9 @@ Physical model notes:
   ![SS-SCYLLA-IIA-2](screenshots/schema_scylla_v2.png)
 - `[SS-SCYLLA-IIA-3]` Keyspace/tables shown in `cqlsh`.
   ![SS-SCYLLA-IIA-3](screenshots/schema_scylla.png)
+- `[SS-SCYLLA-IIA-4]` docker.
+  ![SS-SCYLLA-IIA-4](screenshots/scylla_dcoker.png)
+
 
 ---
 
@@ -644,6 +630,12 @@ Observed Scylla ingestion output:
 **Screenshot placeholders (full screen):**
 - `[SS-SCYLLA-IIB-1]` `ingest_scylla.py` code.
   ![SS-SCYLLA-IIB-1](screenshots/code_insgest_scylla_1.png)
+- `[SS-SCYLLA-IIB-1]` `ingest_scylla.py` code.
+  ![SS-SCYLLA-IIB-1](screenshots/code_insgest_scyllla_2.png)
+- `[SS-SCYLLA-IIB-1]` `ingest_scylla.py` code.
+  ![SS-SCYLLA-IIB-1](screenshots/code_insgest_scylla_3.png)
+- `[SS-SCYLLA-IIB-1]` `ingest_scylla.py` code.
+  ![SS-SCYLLA-IIB-1](screenshots/code_ingest_scylla_4.png)
 - `[SS-SCYLLA-IIB-2]` Terminal output with stage and total ingestion timing.
   ![SS-SCYLLA-IIB-2](screenshots/ingest_scylla.png)
 
@@ -701,12 +693,6 @@ python scylla/run_queries_scylla.py --hosts 127.0.0.1 --port 9042 --runs 3 --q4-
 **Screenshot placeholders (full screen):**
 - `[SS-SCYLLA-Q1]` Query output and timings.
   ![SS-SCYLLA-Q1](screenshots/queries_scylla_full.png)
-- `[SS-SCYLLA-Q2]` Query output and timings.
-  ![SS-SCYLLA-Q2](screenshots/queries_scylla_full.png)
-- `[SS-SCYLLA-Q3]` Query output and timings.
-  ![SS-SCYLLA-Q3](screenshots/queries_scylla_full.png)
-- `[SS-SCYLLA-Q4]` Query output and timings.
-  ![SS-SCYLLA-Q4](screenshots/queries_scylla_full.png)
 
 ---
 
@@ -756,10 +742,7 @@ Indexes:
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-IIA-1]` replica set initialization and status.
   ![SS-MONGO-IIA-1](screenshots/mongo_docker.png)
-- `[SS-MONGO-IIA-2]` collection examples (document structure).
-  ![SS-MONGO-IIA-2](screenshots/mongo_docker.png)
-- `[SS-MONGO-IIA-3]` created indexes in MongoDB.
-  ![SS-MONGO-IIA-3](screenshots/mongo_error.png)
+  
 
 ---
 
@@ -792,10 +775,6 @@ MongoDB execution note:
 The MongoDB part could not be completed within the assignment time due to repeated instability in the Docker replica set (nodes periodically changed state and writes were interrupted with `NotWritablePrimary` / replica state change errors during ingestion). As a result, final ingestion and benchmark timings for MongoDB are not available.
 
 **Screenshot placeholders (full screen):**
-- `[SS-MONGO-IIB-1]` `ingest_mongodb.py` code.
-  ![SS-MONGO-IIB-1](screenshots/mongo_error.png)
-- `[SS-MONGO-IIB-2]` Terminal output with stage and total ingestion timing.
-  ![SS-MONGO-IIB-2](screenshots/mongo_error.png)
 - `[SS-MONGO-IIB-3]` Terminal screenshot showing replica-set instability / write interruption error.
   ![SS-MONGO-IIB-3](screenshots/mongo_error.png)
 
@@ -849,13 +828,3 @@ python mongodb/run_queries_mongodb.py --host localhost --ports "27020,27021,2702
 | 2 | Not completed |
 | 3 | Not completed |
 | Average | Not completed |
-
-**Screenshot placeholders (full screen):**
-- `[SS-MONGO-Q1]` Query output and timings.
-  ![SS-MONGO-Q1](screenshots/mongo_error.png)
-- `[SS-MONGO-Q2]` Query output and timings.
-  ![SS-MONGO-Q2](screenshots/mongo_error.png)
-- `[SS-MONGO-Q3]` Query output and timings.
-  ![SS-MONGO-Q3](screenshots/mongo_error.png)
-- `[SS-MONGO-Q4]` Query output and timings.
-  ![SS-MONGO-Q4](screenshots/mongo_error.png)
