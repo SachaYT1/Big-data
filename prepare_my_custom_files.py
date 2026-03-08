@@ -1,21 +1,4 @@
 #!/usr/bin/env python3
-"""
-Build custom slice files for the assignment from the full datasets.
-
-Input files expected in the current directory:
-  - my_users.csv
-  - checkins_anonymized.txt
-  - friendship_before_old.txt
-  - friendship_after_new.txt
-  - POIs.txt
-
-Output files:
-  - my_checkins_anonymized.tsv
-  - my_frienship_before.tsv
-  - my_frienship_after.tsv
-  - my_POIs.tsv
-"""
-
 import csv
 import time
 from pathlib import Path

@@ -1,4 +1,4 @@
-# Assignment 1 Report Draft
+# Assignment 1 Report
 
 Course: Big Data - IU  
 Assignment: Big Data Storage in SQL vs. NoSQL Databases  
@@ -6,17 +6,7 @@ Student: Aleksandr Gavkovskii
 
 SID: 50  
 
----
-
-## Scope of This Draft
-
-This draft currently covers:
-1. **Part I - Data Preparation**
-2. **PostgreSQL-only parts** from:
-   - II. Data Modeling & Ingestion
-   - III. Analytical Query Execution
-
-Other systems (ScyllaDB, MongoDB) will be added later.
+Note: A subset of screenshots in this report is not full-screen due to a late realization of the screenshot formatting requirement.
 
 ---
 
@@ -173,9 +163,9 @@ Ingestion metrics table:
 | Database | Total Ingestion time | Database Setup | CPU cores allocated | Main Memory usage |
 |---|---:|---|---:|---:|
 | PostgreSQL | `3883.44 sec` | A single server | `12` | `36 GiB` |
-| Citus Data | `188.58 sec` | A cluster of `3` nodes | `TBD` | `TBD` |
+| Citus Data | `188.58 sec` | A cluster of `3` nodes | `12` | `36 GiB` |
 | ScyllaDB | `3310.36 sec` | A cluster of `3` nodes | `3 (1 per node)` | `6 GiB (2 GiB per node)` |
-| MongoDB | `TBD` | A replica set of `??` nodes | `TBD` | `TBD` |
+| MongoDB | `Not completed` | A replica set of `3` nodes | `Not measured` | `Not measured` |
 
 **Screenshot placeholders (full screen):**
 - `[SS-IIB-1]` `ingest_postgres.py` code.
@@ -214,7 +204,7 @@ ORDER BY total_checkins DESC
 LIMIT 10;
 ```
 
-Result + timing (fill from execution):
+Result + timing:
 
 | Run | Time (sec) |
 |---:|---:|
@@ -268,7 +258,7 @@ ORDER BY fp.friend_checkin_count DESC, fp.userid
 LIMIT 50;
 ```
 
-Result + timing (fill from execution):
+Result + timing:
 
 | Run | Time (sec) |
 |---:|---:|
@@ -309,7 +299,7 @@ ORDER BY total_shares DESC
 LIMIT 20;
 ```
 
-Result + timing (fill from execution):
+Result + timing:
 
 | Run | Time (sec) |
 |---:|---:|
@@ -358,7 +348,7 @@ WHERE custom_category = 'Club'
 GROUP BY custom_category;
 ```
 
-Result + timing (fill from execution):
+Result + timing:
 
 | Run | Time (sec) |
 |---:|---:|
@@ -376,14 +366,14 @@ Sample result:
 
 ---
 
-## PostgreSQL Summary Table (for Part IV.A draft)
+## Summary Table (Part IV.A)
 
 | Database | Q1 | Q2 | Q3 | Q4 | Database Setup | CPU cores allocated | Main Memory usage |
 |---|---:|---:|---:|---:|---|---:|---:|
 | PostgreSQL | 2.4992 | 12.1086 | 5.9315 | 3.9701 | A single server | `12` | `36 GiB` |
-| Citus Data | 15.5531 | 34.3268 | 36.8578 | 24.0533 | A cluster of `3` nodes | `TBD` | `TBD` |
+| Citus Data | 15.5531 | 34.3268 | 36.8578 | 24.0533 | A cluster of `3` nodes | `12` | `36 GiB` |
 | ScyllaDB | 0.0040 | 0.0038 | 0.0018 | 0.0011 | A cluster of `3` nodes | `3 (1 per node)` | `6 GiB (2 GiB per node)` |
-| MongoDB | `TBD` | `TBD` | `TBD` | `TBD` | A replica set of `??` nodes | `TBD` | `TBD` |
+| MongoDB | `Not completed` | `Not completed` | `Not completed` | `Not completed` | A replica set of `3` nodes | `Not measured` | `Not measured` |
 
 ---
 
@@ -394,7 +384,7 @@ Sample result:
   1. query text in the table/section,
   2. screenshot of query execution and output,
   3. measured timings.
-- Replace all `<fill>` placeholders before converting to PDF.
+- Ensure all required screenshots are added before converting to PDF.
 
 ---
 
@@ -404,7 +394,7 @@ Sample result:
 
 ---
 
-## Citus Section (work in progress)
+## Citus Section
 
 ### What is Citus (short explanation)
 
@@ -540,7 +530,7 @@ python citus/run_queries_citus.py --dbname foursquaredb --runs 3 --q4-category C
 
 ---
 
-## ScyllaDB Section (work in progress)
+## ScyllaDB Section
 
 ### What is ScyllaDB (short explanation)
 
@@ -683,7 +673,7 @@ python scylla/run_queries_scylla.py --hosts 127.0.0.1 --port 9042 --runs 3 --q4-
 
 ---
 
-## MongoDB Section (work in progress)
+## MongoDB Section
 
 ### What is MongoDB (short explanation)
 
@@ -743,24 +733,28 @@ Command used:
 ```bash
 cd "/Users/algavkovskii/uni/Big data"
 source venv312/bin/activate
-python mongodb/ingest_mongodb.py --uri "mongodb://localhost:27020/?directConnection=true" --db foursquaredb
+python mongodb/ingest_mongodb.py --host localhost --ports "27020,27021,27022" --db foursquaredb
 ```
 
 Observed MongoDB ingestion output:
 
 | Stage | Time (sec) |
 |---|---:|
-| `users` | `TBD` |
-| `pois` | `TBD` |
-| `checkins` | `TBD` |
-| `friendships` | `TBD` |
-| `stable_friendships` | `TBD` |
-| `indexes` | `TBD` |
-| **TOTAL** | **TBD** |
+| `users` | Not completed |
+| `pois` | Not completed |
+| `checkins` | Not completed |
+| `friendships` | Not completed |
+| `stable_friendships` | Not completed |
+| `indexes` | Not completed |
+| **TOTAL** | **Not completed** |
+
+MongoDB execution note:
+The MongoDB part could not be completed within the assignment time due to repeated instability in the Docker replica set (nodes periodically changed state and writes were interrupted with `NotWritablePrimary` / replica state change errors during ingestion). As a result, final ingestion and benchmark timings for MongoDB are not available.
 
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-IIB-1]` `ingest_mongodb.py` code.
 - `[SS-MONGO-IIB-2]` Terminal output with stage and total ingestion timing.
+- `[SS-MONGO-IIB-3]` Terminal screenshot showing replica-set instability / write interruption error.
 
 ---
 
@@ -774,44 +768,44 @@ Benchmark method:
 Command used:
 
 ```bash
-python mongodb/run_queries_mongodb.py --uri "mongodb://localhost:27020/?directConnection=true" --db foursquaredb --runs 3 --q4-category Club
+python mongodb/run_queries_mongodb.py --host localhost --ports "27020,27021,27022" --db foursquaredb --runs 3 --q4-category Club
 ```
 
 ### MongoDB Q1 timing
 
 | Run | Time (sec) |
 |---:|---:|
-| 1 | `TBD` |
-| 2 | `TBD` |
-| 3 | `TBD` |
-| Average | `TBD` |
+| 1 | Not completed |
+| 2 | Not completed |
+| 3 | Not completed |
+| Average | Not completed |
 
 ### MongoDB Q2 timing
 
 | Run | Time (sec) |
 |---:|---:|
-| 1 | `TBD` |
-| 2 | `TBD` |
-| 3 | `TBD` |
-| Average | `TBD` |
+| 1 | Not completed |
+| 2 | Not completed |
+| 3 | Not completed |
+| Average | Not completed |
 
 ### MongoDB Q3 timing
 
 | Run | Time (sec) |
 |---:|---:|
-| 1 | `TBD` |
-| 2 | `TBD` |
-| 3 | `TBD` |
-| Average | `TBD` |
+| 1 | Not completed |
+| 2 | Not completed |
+| 3 | Not completed |
+| Average | Not completed |
 
 ### MongoDB Q4 timing
 
 | Run | Time (sec) |
 |---:|---:|
-| 1 | `TBD` |
-| 2 | `TBD` |
-| 3 | `TBD` |
-| Average | `TBD` |
+| 1 | Not completed |
+| 2 | Not completed |
+| 3 | Not completed |
+| Average | Not completed |
 
 **Screenshot placeholders (full screen):**
 - `[SS-MONGO-Q1]` Query output and timings.
